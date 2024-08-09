@@ -3,7 +3,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # URL вашего Web App
-    web_app_url = "https://masami2783.github.io/"
+    web_app_url = "https://masami2783.github.io"
 
     # Создание кнопки, открывающей Web App
     keyboard = [
@@ -17,11 +17,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 def main() -> None:
     # Введите сюда токен вашего бота
     application = Application.builder().token("7284584129:AAFNm1mzoIV3OrJ0QmfJ3PoxPvV61TJe7pk").build()
-
-    # Добавление обработчика команды
     application.add_handler(CommandHandler("start", start))
-
-    # Запуск бота
     application.run_polling()
 
 if __name__ == '__main__':
