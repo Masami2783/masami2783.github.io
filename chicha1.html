@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Web App</title>
+    <title>My Web App</title>
+    <script async src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Welcome to My Telegram Web App!</h1>
-    <button id="sendMessage">Send Message to Bot</button>
+    <h1>Welcome to My Web App!</h1>
+    <p>This is a simple web app integrated with Telegram Bot.</p>
+    <button id="send-data">Send Data</button>
 
     <script>
-        // Получение данных о пользователе и чате из Telegram Web App
-        const tg = window.Telegram.WebApp;
+        window.onload = () => {
+            const tg = window.Telegram.WebApp;
+            tg.ready();
 
-        document.getElementById('sendMessage').addEventListener('click', () => {
-            tg.sendData("Hello from the Web App!");  // Отправка данных обратно в Telegram
-        });
+            // Обработчик кнопки для отправки данных в бота
+            document.getElementById('send-data').addEventListener('click', () => {
+                tg.sendData("Hello from Web App!");
+            });
 
-        // Настройка Web App
-        tg.expand();  // Разворачивает Web App на весь экран
+            // Получить информацию о пользователе
+            console.log(tg.initData);
+        };
     </script>
 </body>
 </html>
